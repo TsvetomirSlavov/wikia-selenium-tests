@@ -1,0 +1,25 @@
+package com.wikia.webdriver.pageobjectsfactory.pageobject.wikipage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+/**
+ * Author: Artur Dwornik Date: 02.04.13 Time: 17:31
+ */
+public class WikiArticleHomePage extends WikiArticlePageObject {
+
+  @FindBy(css = "#HOME_TOP_RIGHT_BOXAD")
+  private WebElement wikiHomePageSpecificElement;
+
+  public WikiArticleHomePage(WebDriver driver) {
+    super(driver);
+  }
+
+  /**
+   * Check if current page is in fact home page of wiki
+   */
+  public void verifyThisIsWikiHomePage() {
+    wait.forElementVisible(wikiHomePageSpecificElement);
+  }
+}
